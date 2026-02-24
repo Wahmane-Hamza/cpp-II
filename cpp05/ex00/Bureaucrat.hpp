@@ -47,4 +47,5 @@ class Bureaucrat
         private:
 			void	checkGrade(int grade) const;
 };
+
 std::ostream&	operator<<(std::ostream& cout, const Bureaucrat& obj);

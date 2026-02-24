@@ -18,6 +18,7 @@
 
 int	main()
 {
+	srand(time(0));
 	// Init Forms
 	ShrubberyCreationForm	s1 = ShrubberyCreationForm("Home");
 	std::cout << s1 << std::endl;
