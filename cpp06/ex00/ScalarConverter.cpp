@@ -26,6 +26,5 @@ void	ScalarConverter::convert(std::string& s)
     if (!s.empty())
     {
     }
-    else
     
 }
