@@ -8,7 +8,9 @@ int	main()
 	uintptr_t	raw = Serialize::serialize(ptr1);
 	Data*		ptr2 = Serialize::deserialize(raw);
 
+	std::cout << "raw: " << raw << std::endl;
 	std::cout << "ptr1: " << ptr1 << std::endl;
+	std::cout << "raw: " << raw << std::endl;
 	std::cout << "ptr2: " << ptr2 << std::endl;
 
 	std::cout << "Is Equals: " << (ptr1 == ptr2 ? "True" : "false") << std::endl;
