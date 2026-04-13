@@ -31,17 +31,17 @@ void	identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
 	{
-		std::cout << "A Class" << std::endl;
+		std::cout << "A" << std::endl;
 		return ;
 	}
 	if (dynamic_cast<B*>(p))
 	{
-		std::cout << "B Class" << std::endl;
+		std::cout << "B" << std::endl;
 		return ;
 	}
 	if (dynamic_cast<C*>(p))
 	{
-		std::cout << "C Class" << std::endl;
+		std::cout << "C" << std::endl;
 		return ;
 	}
 	std::cout << "Invalid Class Pointer" << std::endl;
@@ -53,7 +53,7 @@ void	identify(Base& p)
 	try
 	{
 		(void)dynamic_cast<A&>(p);
-		std::cout << "A Class" << std::endl;
+		std::cout << "A" << std::endl;
 		return ;
 	}
 	catch (const std::exception& e)
@@ -64,7 +64,7 @@ void	identify(Base& p)
 	try
 	{
 		(void)dynamic_cast<B&>(p);
-		std::cout << "B Class" << std::endl;
+		std::cout << "B" << std::endl;
 		return ;
 	}
 	catch (const std::exception& e)
@@ -75,12 +75,12 @@ void	identify(Base& p)
 	try
 	{
 		(void)dynamic_cast<C&>(p);
-		std::cout << "C Class" << std::endl;
+		std::cout << "C" << std::endl;
 		return ;
 	}
 	catch (const std::exception& e)
 	{
 	}
 
-	std::cout << "Invalid Class Refrence" << std::endl;
+	std::cout << "Invalid Class Reference" << std::endl;
 }
