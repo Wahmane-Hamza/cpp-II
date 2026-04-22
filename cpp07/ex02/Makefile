@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp iter.hpp
+%.o: %.cpp Array.hpp Array.tpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
