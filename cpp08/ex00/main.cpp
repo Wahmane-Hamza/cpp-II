@@ -2,11 +2,9 @@
 
 int	main()
 {
-	typedef  std::vector<int>		IntContainer;
-	typedef IntContainer::iterator	IntIterator;
 
-	IntContainer	container;
-	IntIterator		it;
+	std::vector<int>	container;
+	std::vector<int>::iterator		it;
 	
 	container.push_back(0);
 	container.push_back(2);

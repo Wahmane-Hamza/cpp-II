@@ -1,0 +1,48 @@
+
+#pragma once
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+class Span
+{
+	private:
+		std::vector<int>	_container;
+		unsigned int		_capacity;
+	public:
+		Span();
+		Span(unsigned int N);
+		Span(const Span& copy);
+		Span&	operator=(const Span& copy);
+		~Span();
+
+		void				addNumber(int number);
+		unsigned int		shortestSpan();
+		unsigned int		longestSpan();
+		std::vector<int>::iterator	begin();
+		std::vector<int>::iterator	end();
+
+		template <typename It>
+		void	addNumber(It begin, It end)
+		{
+			std::size_t	distance = std::distance(begin, end);
+			if (this->_container.size() + distance > this->_capacity)
+				throw SpanIsFull();
+			this->_container.insert(this->_container.end(), begin, end);
+		}
+		
+		class SpanIsFull : public std::exception
+		{
+			public :
+				const char*	what() const throw();
+		};
+
+		class UnderTwoNumbers : public std::exception
+		{
+			public :
+				const char*	what() const throw();
+		};
+
+};

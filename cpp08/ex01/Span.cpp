@@ -1,0 +1,90 @@
+#include "Span.hpp"
+
+Span::Span() : _capacity(0)
+{
+}
+
+Span::Span(unsigned int N) : _capacity(N)
+{
+	this->_container.reserve(N);
+}
+
+Span::Span(const Span& copy)
+{
+	*this = copy;
+}
+
+Span&	Span::operator=(const Span& copy)
+{
+	if (this != &copy)
+	{
+		this->_capacity = copy._capacity;
+		this->_container = copy._container;
+	}
+	return (*this);
+}
+
+Span::~Span()
+{
+}
+
+std::vector<int>::iterator	Span::begin()
+{
+	return (this->_container.begin());
+}
+
+std::vector<int>::iterator	Span::end()
+{
+	return (this->_container.end());
+}
+
+void	Span::addNumber(int number)
+{
+	if (this->_container.size() < this->_capacity)
+		this->_container.push_back(number);
+	else
+		throw SpanIsFull();
+}
+
+const char*	Span::SpanIsFull::what() const throw()
+{
+	return "Span is full.";
+}
+
+const char*	Span::UnderTwoNumbers::what() const throw()
+{
+	return "Container must have at least two elements to find a span.";
+}
+
+unsigned int		Span::shortestSpan()
+{
+	long	minSpan;
+	long	diff;
+
+	if (this->_container.size() < 2)
+		throw UnderTwoNumbers();
+
+	std::vector<int>	sortedContainer(this->_container);
+	std::sort(sortedContainer.begin(), sortedContainer.end());
+	minSpan = sortedContainer[this->_container.size() - 1];
+
+	for (unsigned int i = 0; i < this->_container.size() - 1; i++)
+	{
+		diff = static_cast<long>(sortedContainer[i + 1])
+			- static_cast<long>(sortedContainer[i]);
+		if (diff < minSpan)
+			minSpan = diff;
+	}
+	return (minSpan);
+}
+
+unsigned int		Span::longestSpan()
+{
+	if (this->_container.size() < 2)
+		throw UnderTwoNumbers();
+
+	std::vector<int>::iterator	min_it = std::min_element(this->_container.begin(), this->_container.end());
+	std::vector<int>::iterator	max_it = std::max_element(this->_container.begin(), this->_container.end());
+
+	return (*max_it - *min_it);
+}
