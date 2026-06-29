@@ -66,7 +66,7 @@ unsigned int		Span::shortestSpan()
 
 	std::vector<int>	sortedContainer(this->_container);
 	std::sort(sortedContainer.begin(), sortedContainer.end());
-	minSpan = sortedContainer[this->_container.size() - 1];
+	minSpan = sortedContainer[1] -sortedContainer[0];
 
 	for (unsigned int i = 0; i < this->_container.size() - 1; i++)
 	{
