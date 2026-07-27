@@ -34,5 +34,5 @@ class NoHeaderFound : public std::exception
 		const char*	what() const throw();
 };
 
-bool	parseBtcDatabase(const std::string& filePath, std::map<std::string, double>& data);
-void	bitcoinExchange(const std::string& filePath, const std::map<std::string, double>& database);
+bool	parseDatabase(const std::string& filePath, std::map<std::string, double>& data);
+void	exchange(const std::string& filePath, const std::map<std::string, double>& database);

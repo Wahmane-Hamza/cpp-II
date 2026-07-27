@@ -15,7 +15,7 @@ const char*	NoHeaderFound::what() const throw()
 	return "Error: NoHeaderFound";
 }
 
-bool	isValidDateFormat(const std::string& date)
+bool	checkDateSyntax(const std::string& date)
 {
 	if (date.length() != 10)
 		return false;
@@ -31,7 +31,7 @@ bool	isValidDateFormat(const std::string& date)
 	return true;
 }
 
-bool	isValidDateValue(const std::string& date)
+bool	isValidDate(const std::string& date)
 {
 	int	year = atoi(date.substr(0, 4).c_str());
 	int	month = atoi(date.substr(5, 2).c_str());
@@ -50,7 +50,7 @@ bool	isValidDateValue(const std::string& date)
 	return true;
 }
 
-bool	parseBtcDatabase(const std::string& filePath, std::map<std::string, double>& database)
+bool	parseDatabase(const std::string& filePath, std::map<std::string, double>& database)
 {
 	std::string	date;
 	double		price;
@@ -85,7 +85,7 @@ bool	parseBtcDatabase(const std::string& filePath, std::map<std::string, double>
 
 		if (ss.fail() || !ss.eof())
 			continue ;
-		if (!isValidDateFormat(date) || !isValidDateValue(date))
+		if (!checkDateSyntax(date) || !isValidDate(date))
 			continue ;
 		database.insert(std::pair<std::string, double>(date, price));
 	}
@@ -112,7 +112,7 @@ bool	parseBtcInput(std::string& line, std::string& date, double& quantity)
 		std::cerr << "Error: bad input => " << line << std::endl;
 		return false;
 	}
-	if (!isValidDateFormat(date) || !isValidDateValue(date))
+	if (!checkDateSyntax(date) || !isValidDate(date))
 	{
 		std::cerr << "Error: bad input => " << line << std::endl;
 		return false;
@@ -130,7 +130,7 @@ bool	parseBtcInput(std::string& line, std::string& date, double& quantity)
 	return true;
 }
 
-void	bitcoinExchange(const std::string& filePath, const std::map<std::string, double>& database)
+void	exchange(const std::string& filePath, const std::map<std::string, double>& database)
 {
 	std::string	date;
 	double		quantity;

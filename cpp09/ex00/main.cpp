@@ -13,8 +13,8 @@ int	main(int argc, char *argv[])
 		{
 			throw CannotOpenFile();
 		}
-		parseBtcDatabase("data.csv", data);
-		bitcoinExchange(argv[1], data);
+		parseDatabase("data.csv", data);
+		exchange(argv[1], data);
 	}
 	catch(const std::exception& e)
 	{
