@@ -150,7 +150,7 @@ void	exchange(const std::string& filePath, const std::map<std::string, double>& 
 			break ;
 	}
 	while (getline(file, line))
-	{
+	{ 
 		if (line.empty() || parseBtcInput(line, date, quantity) == false)
 			continue ;
 		std::map<std::string, double>::const_iterator	it = database.lower_bound(date);
