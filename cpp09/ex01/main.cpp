@@ -1,0 +1,46 @@
+// #include "PmergeMe.hpp"
+
+// int	main(int argc, char* argv[])
+// {
+// 	if (argc < 2)
+// 	{
+// 		std::cerr << "Error: ./PmergeMe <numbers>" << std::endl;
+// 		return (1);
+// 	}
+
+// 	try
+// 	{
+// 		// 1. Initial Parse (Not Timed)
+// 		std::vector<int> master = parseInput(argc, argv);
+// 		displayContainer("Before", master);
+
+// 		std::vector<int>	jacobSeq = jacobSequence(argc - 1);
+
+// 		// 2. Vector Timing
+// 		clock_t start_vec = std::clock();
+// 		std::vector<int> c1(master.begin(), master.end()); // Data Management
+// 		c1 = pmergeMe(c1, jacobSeq);                       // Sorting
+// 		clock_t end_vec = std::clock();
+
+// 		// 3. Deque Timing
+// 		clock_t start_deq = std::clock();
+// 		std::deque<int> c2(master.begin(), master.end());  // Data Management
+// 		c2 = pmergeMe(c2, jacobSeq);                       // Sorting
+// 		clock_t end_deq = std::clock();
+// 		displayContainer("After", c2);
+
+// 		std::cout << std::fixed << std::setprecision(5);
+
+// 		double	time_vec = static_cast<double>(end_vec - start_vec);
+// 		double	time_deq = static_cast<double>(end_deq - start_deq);
+
+// 		std::cout << "Time to process a range of " << c1.size() << " elements with std::vector : " << time_vec << " us" << std::endl;
+// 		std::cout << "Time to process a range of " << c2.size() << " elements with std::deque : " << time_deq << " us" << std::endl;
+
+// 	}
+// 	catch(const std::exception& e)
+// 	{
+// 		std::cerr << e.what() << std::endl;
+// 	}
+// 	return 0;
+// }

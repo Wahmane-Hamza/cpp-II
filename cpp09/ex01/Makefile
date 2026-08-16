@@ -1,10 +1,10 @@
-NAME = PmergeMe
+NAME = RPN
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 INCLUDES = -I./
 
-SRCS =	main.cpp PmergeMe.cpp
+SRCS =	main.cpp BitcoinExchange.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp PmergeMe.hpp
+%.o: %.cpp BitcoinExchange.hpp
 	$(CPP) $(CPPFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:

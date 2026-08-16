@@ -56,7 +56,6 @@ bool	parseDatabase(const std::string& filePath, std::map<std::string, double>& d
 	double		price;
 	size_t		commaPos;
 
-	// Open file
 	std::ifstream	file(filePath.c_str());
 	if (!file.is_open())
 		throw CannotOpenFile();
