@@ -1,0 +1,46 @@
+#pragma once
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <exception>
+
+#include <climits>
+#include <cstdlib>
+#include <ctime>
+
+#include <algorithm>
+#include <vector>
+#include <deque>
+
+struct Pair
+{
+	int		a;
+	int 	b;
+	bool	matched;
+	Pair(int w, int l) : a(w), b(l), matched(false) {};
+};
+
+std::vector<int>	pmergeMe(std::vector<int>& numbers, const std::vector<int>& jacobSeq);
+std::deque<int>		pmergeMe(std::deque<int>& numbers, const std::vector<int>& jacobSeq);
+std::vector<int>	parseInput(int argc, char** argv);
+std::vector<int>	jacobSequence(size_t size);
+
+template <typename T>
+void	binaryInsert(T& container, int number, typename T::iterator end)
+{
+	typename T::iterator	insertionPos = std::upper_bound(
+		container.begin(), end, number);
+	container.insert(insertionPos, number);
+}
+
+template <typename T>
+void	displayContainer(std::string state, T container)
+{
+	std::cout << state << ": ";
+	for (size_t i = 0; i < container.size(); i++)
+	{
+		std::cout << container[i] << " ";
+	}
+	std::cout << std::endl;
+}
