@@ -27,7 +27,7 @@ int	main(int argc, char* argv[])
 		std::deque<int> c2(master.begin(), master.end());  // Data Management
 		c2 = pmergeMe(c2, jacobSeq);                       // Sorting
 		clock_t end_deq = std::clock();
-		displayContainer("After", c2);
+		displayContainer("After", c1);
 
 		std::cout << std::fixed << std::setprecision(5);
 
