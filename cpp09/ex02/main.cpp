@@ -10,7 +10,7 @@ int	main(int argc, char* argv[])
 
 	try
 	{
-		// 1. Initial Parse (Not Timed)
+		// 1. Initial Parse
 		std::vector<int> master = parseInput(argc, argv);
 		displayContainer("Before", master);
 
@@ -18,14 +18,14 @@ int	main(int argc, char* argv[])
 
 		// 2. Vector Timing
 		clock_t start_vec = std::clock();
-		std::vector<int> c1(master.begin(), master.end()); // Data Management
-		c1 = pmergeMe(c1, jacobSeq);                       // Sorting
+		std::vector<int> c1(master.begin(), master.end());
+		c1 = pmergeMe(c1, jacobSeq);
 		clock_t end_vec = std::clock();
 
 		// 3. Deque Timing
 		clock_t start_deq = std::clock();
-		std::deque<int> c2(master.begin(), master.end());  // Data Management
-		c2 = pmergeMe(c2, jacobSeq);                       // Sorting
+		std::deque<int> c2(master.begin(), master.end());
+		c2 = pmergeMe(c2, jacobSeq);
 		clock_t end_deq = std::clock();
 		displayContainer("After", c1);
 
